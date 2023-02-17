@@ -1,0 +1,44 @@
+<div class="dynamic-form-wrapper">
+  <ng-template *ngIf="input.controlType === 'textbox'" [ngTemplateOutlet]="textboxInput"></ng-template>
+  <ng-template *ngIf="input.controlType === 'dropdown'" [ngTemplateOutlet]="dropdownInput"></ng-template>
+  <ng-template *ngIf="input.controlType === 'checkbox'" [ngTemplateOutlet]="checkboxInput"></ng-template>
+  <ng-template *ngIf="input.controlType === 'radio'" [ngTemplateOutlet]="radioInput"></ng-template>
+  <ng-template *ngIf="input.controlType === 'textarea'" [ngTemplateOutlet]="textareaInput"></ng-template>
+</div>
+
+<ng-template #textboxInput>
+  <div [formGroup]="form" class="form-group mb-3">
+    <label [attr.for]="input.key">{{input.label}}</label>
+    <input class="form-control" [formControlName]="input.key" [id]="input.key" [type]="input.type">
+  </div>
+</ng-template>
+<ng-template #dropdownInput>
+  <div [formGroup]="form" class="form-group mb-3">
+    <label [attr.for]="input.key">{{input.label}}</label>
+    <select class="custom-select form-control" [id]="input.key" [formControlName]="input.key">
+      <option *ngFor="let opt of input.options" [value]="opt.key">{{opt.value}}</option>
+    </select>
+  </div>
+</ng-template>
+<ng-template #checkboxInput>
+  <div [formGroup]="form" class="form-group mb-3">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" [formControlName]="input.key" [id]="input.key">
+      <label class="form-check-label" [attr.for]="input.key">{{input.label}}</label>
+    </div>
+  </div>
+</ng-template>
+<ng-template #radioInput>
+  <div [formGroup]="form" class="form-group mb-3">
+    <div class="form-check form-check-inline" *ngFor="let opt of input.options">
+      <input class="form-check-input" type="radio" [formControlName]="input.key" [id]="input.key" [value]="opt.value">
+      <label class="form-check-label" [attr.for]="opt.key"> {{ opt.value }} </label>
+    </div>
+  </div>
+</ng-template>
+<ng-template #textareaInput>
+  <div [formGroup]="form" class="form-group mb-3">
+    <label [attr.for]="input.key">{{input.label}}</label>
+    <textarea class="form-control" [formControlName]="input.key" [id]="input.key" rows="5"></textarea>
+  </div>
+</ng-template>

@@ -1,0 +1,13 @@
+<div class="w-sm-100 w-500 m-auto">
+  <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+    <div *ngFor="let formField of formFields" class="form-group">
+      <app-dynamic-form-input [input]="formField" [form]="formGroup"></app-dynamic-form-input>
+    </div>
+    <div class="form-group text-center">
+      <!-- <button type="submit" class="btn btn-success" [disabled]="formGroup.invalid">Save</button> -->
+    </div>
+  </form>
+  <div *ngIf="formValues" class="form-group mt-5">
+    <strong>Here's the all filled form values</strong><br>{{formValues}}
+  </div>
+</div>
