@@ -1,9 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {
-  RxjsStateService,
-  StepOption,
-} from 'src/app/shared/services/rxjs-state.service';
+import { RxjsStateService } from 'src/app/shared/services/rxjs-state.service';
 
 @Component({
   selector: 'app-footer',
@@ -11,7 +7,7 @@ import {
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit, AfterViewInit {
-  constructor(private rxjsState: RxjsStateService, private router: Router) {}
+  constructor(private rxjsState: RxjsStateService) {}
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
@@ -21,14 +17,18 @@ export class FooterComponent implements OnInit, AfterViewInit {
   }
 
   submit() {
-    console.log(this.rxjsState.form?.getValue().valid);
-
-    if (this.rxjsState.selecetedState === StepOption.STEP_ONE) {
-      this.router.navigate(['/step-two']);
-    }
+    this.rxjsState.nextStep(this.rxjsState.selecetedState);
   }
 
   get valid() {
     return this.rxjsState.form?.getValue().valid;
+  }
+
+  get selectedState() {
+    return this.rxjsState.selecetedState;
+  }
+
+  back() {
+    this.rxjsState.previousStep(this.rxjsState.selecetedState);
   }
 }
