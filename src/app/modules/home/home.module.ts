@@ -7,6 +7,7 @@ import { StepOneComponent } from './components/step-one/step-one.component';
 import { StepTwoComponent } from './components/step-two/step-two.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { PermissionModule } from 'src/app/shared/permission/permission.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     StepOneComponent,
     StepTwoComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule, SharedModule],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, PermissionModule],
 })
 export class HomeModule {}

@@ -14,7 +14,7 @@ export class RxjsStateService {
   public baseState!: {
     [key in StepOption]?: BehaviorSubject<FormGroup>;
   };
-  public selecetedState!: StepOption;
+  public selectedState!: StepOption;
 
   constructor(private router: Router) {}
 
@@ -26,11 +26,11 @@ export class RxjsStateService {
   }
 
   setSelectedState(step: StepOption) {
-    this.selecetedState = step;
+    this.selectedState = step;
   }
 
   get form(): BehaviorSubject<FormGroup<any>> | undefined {
-    return this.baseState[this.selecetedState];
+    return this.baseState[this.selectedState];
   }
 
   nextStep(currentState: StepOption) {

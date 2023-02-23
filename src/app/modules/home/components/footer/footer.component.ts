@@ -11,13 +11,13 @@ export class FooterComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    if (this.rxjsState.selecetedState) {
+    if (this.rxjsState.selectedState) {
       console.log(this.rxjsState?.form?.value);
     }
   }
 
   submit() {
-    this.rxjsState.nextStep(this.rxjsState.selecetedState);
+    this.rxjsState.nextStep(this.rxjsState.selectedState);
   }
 
   get valid() {
@@ -25,10 +25,10 @@ export class FooterComponent implements OnInit, AfterViewInit {
   }
 
   get selectedState() {
-    return this.rxjsState.selecetedState;
+    return this.rxjsState.selectedState;
   }
 
   back() {
-    this.rxjsState.previousStep(this.rxjsState.selecetedState);
+    this.rxjsState.previousStep(this.rxjsState.selectedState);
   }
 }

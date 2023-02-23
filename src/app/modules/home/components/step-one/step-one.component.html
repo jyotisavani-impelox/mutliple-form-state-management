@@ -6,6 +6,14 @@
             </div>
         </div>
         <div class="col-12">
+            <div class="m-5">
+                <div class="admin" *hasPermission="['User.Add','User.Edit']">
+                    Only for 'User.Add' and 'User.Edit
+                </div>
+                <div class="admin" *hasPermission="['Admin']">
+                    Only for Admin
+                </div>
+            </div>
             <div class="w-50 m-auto">
                 <app-dynamic-form #dynamicForm [formFields]="formFields"></app-dynamic-form>
             </div>
