@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <div class="change-detection">
+        <div class="show-view" *ngIf="showView">
+            Show view condition
+        </div>
+    </div>
+    <div class="list w-50 m-auto mt-5">
+        <div class="users d-flex align-items-center justify-content-between">
+            <div>User</div>
+            <button class="btn btn-success" (click)="addUser()"> Add </button>
+        </div>
+        <div class="mt-5">
+            {{users.length}}
+            <div class="item" *ngFor="let user of users; let i =index">
+                <div class="name">
+                    {{user.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
