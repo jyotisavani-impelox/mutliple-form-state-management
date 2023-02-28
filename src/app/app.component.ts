@@ -7,10 +7,9 @@ import { PermissionService } from './shared/permission/permission.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'state-mgmt';
   constructor(private permissionService: PermissionService) {}
 
   async ngOnInit(): Promise<void> {
-    await this.permissionService.initPermissions();
+    // await this.permissionService.initPermissions();
   }
 }

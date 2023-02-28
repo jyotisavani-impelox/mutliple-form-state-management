@@ -1,0 +1,13 @@
+<div dynamicCompanyView [selectedCompany]="selectedCompany" [views]="{
+    'Company A':  companyA,
+    'Company B' : companyB
+}">
+</div>
+
+<ng-template #companyA>
+    <div>Company A</div>
+</ng-template>
+
+<ng-template #companyB>
+    <div>Company B</div>
+</ng-template>

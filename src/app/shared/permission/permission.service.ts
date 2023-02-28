@@ -14,8 +14,6 @@ export class PermissionService {
 
   async initPermissions() {
     const permissions = await this.getPermissions();
-    console.log('permissions', permissions);
-
     this.currentPermissions = permissions;
     return permissions;
   }
