@@ -1,0 +1,31 @@
+<div>
+    Without [selectedCompany] condition
+</div>
+<div dynamicCompanyView [views]="{
+    'Company A':  companyA,
+    'Company B' : companyB
+}">
+</div>
+
+
+<hr>
+<div>
+    With [selectedCompany] condition
+</div>
+<div dynamicCompanyView [selectedCompany]="selectedCompany" [views]="{
+    'Company C':  companyC
+}">
+</div>
+
+<ng-template #companyA>
+    <div>Company A</div>
+</ng-template>
+
+<ng-template #companyB>
+    <div>Company B</div>
+</ng-template>
+
+
+<ng-template #companyC>
+    <div>Company C</div>
+</ng-template>
