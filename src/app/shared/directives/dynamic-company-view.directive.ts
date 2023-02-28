@@ -24,15 +24,19 @@ export class DynamicCompanyViewDirective implements AfterViewInit {
   constructor(private viewContainerRef: ViewContainerRef) {}
 
   ngAfterViewInit(): void {
-    if (this.views[Companies.companyA]) {
-      this.viewContainerRef.createEmbeddedView(this.views[Companies.companyA]);
-    }
+    if (!this.selectedCompany) {
+      if (this.views[Companies.companyA]) {
+        this.viewContainerRef.createEmbeddedView(
+          this.views[Companies.companyA]
+        );
+      }
 
-    if (this.views[Companies.companyB]) {
-      this.viewContainerRef.createEmbeddedView(this.views[Companies.companyB]);
-    }
-
-    if (this.views[Companies.companyA])
+      if (this.views[Companies.companyB]) {
+        this.viewContainerRef.createEmbeddedView(
+          this.views[Companies.companyB]
+        );
+      }
+    } else {
       switch (this.selectedCompany) {
         case Companies.companyA:
           if (this.views[Companies.companyA]) {
@@ -53,5 +57,6 @@ export class DynamicCompanyViewDirective implements AfterViewInit {
         default:
           break;
       }
+    }
   }
 }

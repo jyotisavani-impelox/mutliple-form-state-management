@@ -8,7 +8,7 @@ import { Companies } from 'src/app/shared/directives/dynamic-company-view.direct
 })
 export class DynamicViewsComponent implements OnInit, AfterViewInit {
   companies = Companies;
-  selectedCompany = Companies.companyA;
+  selectedCompany = Companies.companyC;
   views!: {
     [key in Companies]?: TemplateRef<any>;
   };
