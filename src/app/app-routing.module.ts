@@ -9,6 +9,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/home/home.module').then((m) => m.HomeModule),
   },
+  {
+    path: 'dynamic-views',
+    loadChildren: () =>
+      import('./modules/dynamic-views/dynamic-views.module').then((m) => m.DynamicViewsModule),
+  },
 ];
 
 @NgModule({
